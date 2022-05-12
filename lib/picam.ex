@@ -406,14 +406,12 @@ defmodule Picam do
 
   Defaults to `true`.
   """
-  def set_preview_window(x, y, width, height) when \
-    is_integer(x) and x >= 0 and \
-    is_integer(y) and y >= 0 and \
-    is_integer(width) and width >= 0 and \
-    is_integer(height) and height >= 0 \
-  do
+  def set_preview_window(x, y, width, height)
+      when is_integer(x) and x >= 0 and is_integer(y) and y >= 0 and is_integer(width) and
+             width >= 0 and is_integer(height) and height >= 0 do
     set("preview_window=#{x},#{y},#{width},#{height}")
   end
+
   def set_preview_window(_, _, _, _), do: {:error, :invalid_preview_window}
 
   # Private helper functions

@@ -10,7 +10,7 @@ defmodule PicamHTTP.Application do
 
     children = [
       worker(Picam.Camera, []),
-      Plug.Adapters.Cowboy.child_spec(:http, PicamHTTP.Router, [], [port: port]),
+      Plug.Adapters.Cowboy.child_spec(:http, PicamHTTP.Router, [], port: port)
     ]
 
     opts = [strategy: :one_for_one, name: PicamHTTP.Supervisor]

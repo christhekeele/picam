@@ -17,7 +17,14 @@ defmodule Picam.Camera do
 
     port_restart_interval = Keyword.get(opts, :port_restart_interval, 10_000)
 
-    {:ok, %{port: port, requests: [], offline: false, offline_image: offline_image, port_restart_interval: port_restart_interval}}
+    {:ok,
+     %{
+       port: port,
+       requests: [],
+       offline: false,
+       offline_image: offline_image,
+       port_restart_interval: port_restart_interval
+     }}
   end
 
   defp spawn_port() do
